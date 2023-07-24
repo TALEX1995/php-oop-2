@@ -7,15 +7,14 @@ class Food extends Product
 {
     private $net_weight;
     private $ingredients;
-    private $animal;
+
 
     // Construct
-    public function __construct(int $weight, int $price, string $image, int $net_weight, $ingredients, string $animal)
+    public function __construct(int $weight, int $price, string $image, $animal, int $net_weight, $ingredients)
     {
-        parent::__construct($weight, $price, $image);
+        parent::__construct($weight, $price, $image, $animal);
         $this->setNetWeight($net_weight);
         $this->setIngredients($ingredients);
-        $this->setAnimal($animal);
     }
 
     private function setNetWeight($weight)
@@ -45,21 +44,5 @@ class Food extends Product
     public function getIngredients()
     {
         return $this->ingredients;
-    }
-
-
-    private function setAnimal($animal)
-    {
-        $animal_type = ['Cat', 'Dog', 'Bird', 'Fish'];
-        if (in_array($animal, $animal_type) || is_array($animal)) {
-            $this->$animal = $animal;
-            return true;
-        }
-        return false;
-    }
-
-    public function getAnimal()
-    {
-        return $this->animal;
     }
 }

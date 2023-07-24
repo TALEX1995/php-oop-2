@@ -5,14 +5,16 @@ class Product
     private $weight;
     private $price;
     private $image;
+    private $animal;
 
 
     // Construct
-    public function __construct(int $weight, int $price, string $image)
+    public function __construct(int $weight, int $price, string $image, $animal)
     {
         $this->setWeight($weight);
         $this->setPrice($price);
         $this->image = $image;
+        $this->setAnimal($animal);
     }
 
 
@@ -43,5 +45,20 @@ class Product
             $this->price = $price;
             return true;
         }
+    }
+
+    private function setAnimal($animal)
+    {
+        $animal_type = ['Cat', 'Dog', 'Bird', 'Fish'];
+        if (in_array($animal, $animal_type) || is_array($animal)) {
+            $this->$animal = $animal;
+            return true;
+        }
+        return false;
+    }
+
+    public function getAnimal()
+    {
+        return $this->animal;
     }
 }
