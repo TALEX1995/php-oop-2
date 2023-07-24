@@ -53,7 +53,7 @@ class Product
     {
         $animal_type = ['Cat', 'Dog', 'Bird', 'Fish'];
         if (in_array($animal, $animal_type) || is_array($animal)) {
-            $this->$animal = $animal;
+            $this->animal = $animal;
             return true;
         }
         return false;
