@@ -7,9 +7,21 @@ class Product
 
 
     // Construct
-    function __construct(int $weight, int $price)
+    public function __construct(int $weight, int $price)
     {
-        $this->setWeigth($weight);
+        $this->setWeight($weight);
         $this->setPrice($price);
+    }
+
+    protected function setWeight($weight)
+    {
+        if ((!is_numeric($weight)) || ($weight < 0)) return false;
+        $this->weight = $weight;
+        return true;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
