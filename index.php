@@ -12,6 +12,8 @@ $accessory1 = new Accessory('Voliera Wilma in Legno', 40, 25, 'https://arcaplane
 
 $products = [$game1, $food1, $accessory1];
 
+var_dump($products);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +26,15 @@ $products = [$game1, $food1, $accessory1];
 </head>
 
 <body>
-    <?php foreach ($products as $product) ?>
-    <ul>
-
-    </ul>
+    <?php foreach ($products as $product) : ?>
+        <ul>
+            <?php foreach ($product as $info => $description) : ?>
+                <li>
+                    <span><?= $info ?>: <?= $description ?></span>
+                </li>
+            <?php endforeach ?>
+        </ul>
+    <?php endforeach ?>
 
 </body>
 
