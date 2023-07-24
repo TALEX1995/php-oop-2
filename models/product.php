@@ -13,15 +13,33 @@ class Product
         $this->setPrice($price);
     }
 
+
+    public function isNumberValid($number)
+    {
+        if ((is_numeric($number)) && ($number > 0)) return true;
+    }
+
     protected function setWeight($weight)
     {
-        if ((!is_numeric($weight)) || ($weight < 0)) return false;
-        $this->weight = $weight;
-        return true;
+        $success = $this->isNumberValid($weight);
+        if ($success) {
+            $this->weight = $weight;
+            return true;
+        }
+        return false;
     }
 
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    protected function setPrice($price)
+    {
+        $success = $this->isNumberValid($price);
+        if ($success) {
+            $this->price = $price;
+            return true;
+        }
     }
 }
