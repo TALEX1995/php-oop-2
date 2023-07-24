@@ -4,13 +4,15 @@ class Product
 {
     private $weight;
     private $price;
+    private $image;
 
 
     // Construct
-    public function __construct(int $weight, int $price)
+    public function __construct(int $weight, int $price, string $image)
     {
         $this->setWeight($weight);
         $this->setPrice($price);
+        $this->image = $image;
     }
 
 
