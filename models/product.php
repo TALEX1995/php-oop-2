@@ -2,6 +2,7 @@
 
 class Product
 {
+    private $title;
     private $weight;
     private $price;
     private $image;
@@ -9,8 +10,9 @@ class Product
 
 
     // Construct
-    public function __construct(int $weight, int $price, string $image, $animal)
+    public function __construct(string $title, int $weight, int $price, string $image, $animal)
     {
+        $this->title = $title;
         $this->setWeight($weight);
         $this->setPrice($price);
         $this->image = $image;
