@@ -10,9 +10,9 @@ class Food extends Product
 
 
     // Construct
-    public function __construct(int $weight, int $price, string $image, $animal, int $net_weight, $ingredients)
+    public function __construct(string $title, int $weight, int $price, string $image, $animal, int $net_weight, $ingredients)
     {
-        parent::__construct($weight, $price, $image, $animal);
+        parent::__construct($title, $weight, $price, $image, $animal);
         $this->setNetWeight($net_weight);
         $this->setIngredients($ingredients);
     }
