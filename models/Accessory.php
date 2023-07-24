@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/Product.php';
 
-class Accesory extends Product
+class Accessory extends Product
 {
     private $description;
     private $material;
