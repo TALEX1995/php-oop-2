@@ -1,22 +1,24 @@
 <?php
 
+require_once __DIR__ . '/Category.php';
+
 class Product
 {
     private $title;
     private $weight;
     private $price;
     private $image;
-    private $animal;
+    private $category;
 
 
     // Construct
-    public function __construct(string $title, int $weight, int $price, string $image, $animal)
+    public function __construct(string $title, int $weight, int $price, string $image, Category $category)
     {
         $this->title = $title;
         $this->setWeight($weight);
         $this->setPrice($price);
         $this->image = $image;
-        $this->setAnimal($animal);
+        $this->setCategory($category);
     }
 
 
@@ -49,18 +51,25 @@ class Product
         }
     }
 
-    private function setAnimal($animal)
+    private function setCategory(Category $category)
     {
-        $animal_type = ['Cat', 'Dog', 'Bird', 'Fish'];
-        if (in_array($animal, $animal_type) || is_array($animal)) {
-            $this->animal = $animal;
-            return true;
+        if ($category instanceof Category) {
+            $this->category = $category;
         }
-        return false;
     }
 
-    public function getAnimal()
+    public function getCategory()
     {
-        return $this->animal;
+        return $this->category;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getimg()
+    {
+        return $this->image;
     }
 }
